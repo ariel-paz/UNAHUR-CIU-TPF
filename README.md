@@ -25,14 +25,14 @@ Esta aplicación permite a los usuarios navegar a través de un catálogo de pro
 Sigue estos pasos para ejecutar el proyecto en tu máquina local.
 
 ### Pre-requisitos
-- Node.js (v14 o superior)
+- Node.js (v18 o superior)
 - Backend API de gestión de productos disponible localmente en `http://localhost:5000`
 
 ### Instalación
 Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/nombre-del-repositorio.git
-cd nombre-del-repositorio
+git clone https://github.com/ariel-paz/UNAHUR-CIU-TPF.git
+cd UNAHUR-CIU-TPF
 ```
 
 Instala las dependencias del proyecto:
@@ -42,9 +42,9 @@ npm install
 
 Inicia la aplicación en modo de desarrollo:
 ```bash
-npm start
+npm dev
 ```
-La aplicación debería estar disponible en `http://localhost:3000`.
+La aplicación debería estar disponible en `http://localhost:5173`.
 
 ### Configuración del Backend (cors)
 Si estás utilizando el backend proporcionado, asegúrate de habilitar cors en el backend para permitir que el frontend acceda a sus recursos:
@@ -61,7 +61,6 @@ npm run dev
 
 ## Estructura del Proyecto
 ```plaintext
-.
 ├── src/
 │   ├── components/
 │   │   ├── Header.js
@@ -98,7 +97,6 @@ npm run dev
 - **Backend**: API proporcionada en el repositorio de CIU-UnaHur
 
 ## Autor(es)
-- Nombre del Integrante 1
-- Nombre del Integrante 2
-- Nombre del Integrante 3
-- Nombre del Integrante 4
+- Maximiliano Tomás Gomez
+- Alexis Chebeste
+- Ariel Paz
