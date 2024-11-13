@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header>
-      <h1>Empresa de Manufactura</h1>
+      <h1 className="text-2xl">Empresa de Manufactura</h1>
       <nav>
         <Link to="/">Inicio</Link>
         <Link to="/catalogo">Catálogo de Productos</Link>

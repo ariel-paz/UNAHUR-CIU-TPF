@@ -4,11 +4,11 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Catalogo from './pages/Catalogo';
 import Detalle from './pages/Detalle';
-import './output.css';
 
 function App() {
   return (
     <Router>
+      <h1 className="bg-blue-500 text-white p-4">Hola</h1>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
