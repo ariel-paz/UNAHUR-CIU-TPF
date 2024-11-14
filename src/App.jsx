@@ -7,8 +7,7 @@ import Detalle from './pages/Detalle';
 
 function App() {
   return (
-    <Router>
-      <h1 className="bg-blue-500 text-white p-4">Hola</h1>
+    <Router >
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
