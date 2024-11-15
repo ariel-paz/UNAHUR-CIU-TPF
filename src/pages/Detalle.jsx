@@ -21,12 +21,11 @@ function Detalle() {
   }, [id]);
 
   if (!product) return <p>Cargando...</p>;
-
   return (
-    <section className="flex mx-auto  gap-11 max-w-6xl p-8 border" >
-      <img src={`/${product.pathImg}`} alt={`${product.nombre}`}  />
+    <section className="flex flex-col lg:flex-row mx-auto  gap-11 max-w-6xl p-8 border w-full" >
+      <img src={`/${product.pathImg}`} alt={`${product.nombre}`} className="lg:w-1/2 mx-auto h-full" />
       <Separacion />
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 lg:w-1/2">
         <div className="flex flex-col gap-4">
           <h2 className="text-4xl font-semibold">{product.nombre}</h2>
           <Separacion />
