@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
+
 function Home() {
+  const [open, setOpen] = useState(false);
+  const [submited, setSubmited] = useState(false);
   return (
     <div>
       <section
@@ -6,8 +11,7 @@ function Home() {
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundImage:
-            "url('https://images.prismic.io/simpliroute/cd41b16d-b0ab-482d-930d-f8df8f13438c_manufactura+40.jpg?auto=compress%2Cformat&rect=0%2C121%2C1920%2C836&w=1920&fit=max&q=100')",
+          backgroundImage: "url('images/home.png')",
         }}
       >
         <div className="absolute inset-0 bg-black opacity-25"></div>
@@ -93,15 +97,18 @@ function Home() {
         </div>
       </div>
       <div className="my-0 mx-auto justify-between max-w-6xl pt-5 pb-4 px-2 mb-5">
-        <section className="bg-white p-8 flex items-center" id="nosotros">
-          <div className="w-1/2">
+        <section
+          className="bg-white p-8 items-center inline-block md:flex"
+          id="nosotros"
+        >
+          <div className="md:w-1/2">
             <img
-              src="https://via.placeholder.com/500x300"
+              src="images/home1.jpg"
               alt="Soporte técnico"
               className="rounded-lg shadow-lg"
             />
           </div>
-          <div className="w-1/2 pl-8">
+          <div className="md:w-1/2 md:pl-8 pt-8 md:pt-0">
             <h1 className="text-3xl font-semibold mb-4">Nuestra Empresa</h1>
             <p className="text-lg">
               Somos una empresa dedicada a ofrecer componentes de alta calidad y
@@ -140,52 +147,25 @@ function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div className="group">
-              <a
-                href="https://www.youtube.com/watch?v=video1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://via.placeholder.com/400x300"
-                  alt="Interior del local"
-                  className="w-full h-48 object-cover rounded-lg shadow-lg transform group-hover:scale-105 transition duration-300"
-                />
-              </a>
-              <p className="mt-2 text-center text-gray-700">
-                Interior del local
-              </p>
+              <img
+                src="images/home2.jpg"
+                alt="Interior del local"
+                className="w-full h-48 object-cover rounded-lg shadow-lg transform group-hover:scale-105 transition duration-300"
+              />
             </div>
             <div className="group">
-              <a
-                href="https://www.youtube.com/watch?v=video2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://via.placeholder.com/400x300"
-                  alt="Área de atención al cliente"
-                  className="w-full h-48 object-cover rounded-lg shadow-lg transform group-hover:scale-105 transition duration-300"
-                />
-              </a>
-              <p className="mt-2 text-center text-gray-700">
-                Área de atención al cliente
-              </p>
+              <img
+                src="images/home3.jpg"
+                alt="Área de atención al cliente"
+                className="w-full h-48 object-cover rounded-lg shadow-lg transform group-hover:scale-105 transition duration-300"
+              />
             </div>
             <div className="group">
-              <a
-                href="https://www.youtube.com/watch?v=video3"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://via.placeholder.com/400x300"
-                  alt="Exterior de la empresa"
-                  className="w-full h-48 object-cover rounded-lg shadow-lg transform group-hover:scale-105 transition duration-300"
-                />
-              </a>
-              <p className="mt-2 text-center text-gray-700">
-                Exterior de la empresa
-              </p>
+              <img
+                src="images/home4.jpg"
+                alt="Exterior de la empresa"
+                className="w-full h-48 object-cover rounded-lg shadow-lg transform group-hover:scale-105 transition duration-300"
+              />
             </div>
           </div>
         </section>
@@ -196,7 +176,7 @@ function Home() {
           </h2>
           <div className="flex justify-center">
             <iframe
-              src="https://www.youtube.com/embed/your-video-id"
+              src="https://www.youtube.com/embed/WivxtMYlYCw"
               title="Video de presentación"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="w-full h-64 md:h-96 shadow-lg rounded"
@@ -240,12 +220,121 @@ function Home() {
               ¿Tienes preguntas? ¡Estamos aquí para ayudarte! No dudes en
               ponerte en contacto con nosotros.
             </p>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-md shadow-lg transition duration-200">
+            <button
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-md shadow-lg transition duration-200"
+              onClick={() => setOpen(true)}
+            >
               Enviar Mensaje
             </button>
           </div>
         </section>
       </div>
+      <Dialog open={open} onClose={setOpen} className="relative z-10">
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+        />
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <DialogPanel
+              transition
+              className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            >
+              {!submited ? (
+                <form
+                  className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setSubmited(true);
+                    setTimeout(() => {
+                      setOpen(false);
+                      setSubmited(false);
+                    }, 3000);
+                  }}
+                >
+                  <div className="mb-4">
+                    <label
+                      className="block text-gray-700 text-sm font-bold mb-2"
+                      htmlFor="name"
+                    >
+                      Nombre
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="name"
+                      type="text"
+                      placeholder="Tu nombre"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      className="block text-gray-700 text-sm font-bold mb-2"
+                      htmlFor="email"
+                    >
+                      Correo Electrónico
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="email"
+                      type="email"
+                      placeholder="Tu correo electrónico"
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      className="block text-gray-700 text-sm font-bold mb-2"
+                      htmlFor="message"
+                    >
+                      Mensaje
+                    </label>
+                    <textarea
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="message"
+                      placeholder="Tu mensaje"
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button
+                      className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-md shadow-lg transition duration-200"
+                      type="submit"
+                    >
+                      Enviar
+                    </button>
+                    <button
+                      className="text-gray-500 hover:text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      type="button"
+                      onClick={() => setOpen(false)}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <div className="flex flex-col items-center p-6 border border-orange-300 rounded-lg shadow-lg">
+                  <svg
+                    className="w-8 h-8 mb-2 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm font-semibold">Mensaje enviado</span>
+                </div>
+              )}
+            </DialogPanel>
+          </div>
+        </div>
+      </Dialog>
     </div>
   );
 }
