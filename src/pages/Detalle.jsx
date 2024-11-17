@@ -1,78 +1,86 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Separacion from "../components/Separacion"
+import { useParams, Link } from "react-router-dom";
+/* import Separacion from "../components/Separacion"; */
+import { API_ROUTES, fetchData } from '../src_config_api';
 
 function Detalle() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const [producto, setProducto] = useState(null);
+  const [fabricantes, setFabricantes] = useState([]);
+  const [componentes, setComponentes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchProductoData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/productos/${id}`);
-        const data = await response.json();
-        setProduct(data);
-      } catch (error) {
-        console.error(error);
+        const productoData = await fetchData(API_ROUTES.producto(id));
+        setProducto(productoData);
+
+        const fabricantesData = await fetchData(API_ROUTES.productoFabricantes(id));
+        setFabricantes(fabricantesData.Fabricantes);
+
+        const componentesData = await fetchData(API_ROUTES.productoComponentes(id));
+        setComponentes(componentesData.Componentes);
+
+
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
       }
     };
 
-    fetchProduct();
+    fetchProductoData();
   }, [id]);
 
-  if (!product) return <p>Cargando...</p>;
+
+  if (loading) return <p>Cargando detalles del producto...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!producto) return <p>No se encontró el producto</p>;
+
   return (
-    <section className="flex flex-col lg:flex-row mx-auto  gap-11 max-w-6xl p-8 border w-full" >
-      <img src={`/${product.pathImg}`} alt={`${product.nombre}`} className="lg:w-1/2 mx-auto h-full" />
-      <Separacion />
-      <div className="flex flex-col gap-6 lg:w-1/2">
-        <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-semibold">{product.nombre}</h2>
-          <Separacion />
-          <p className="text-xl">{product.descripcion}</p>
+    <div className="max-w-6xl mx-auto px-8">
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="md:w-1/2">
+          <img src={`/${producto.pathImg}`} alt={producto.nombre} className="w-full h-auto rounded-lg shadow-md" />
+        </div>
+        <div className="md:w-1/2">
+          <h1 className="text-4xl font-bold mb-4">{producto.nombre}</h1>
+          <p className="text-gray-600 mb-4">{producto.descripcion}</p>
+          <p className="text-2xl font-semibold mb-4">${producto.precio.toFixed(2)}</p>
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+            Añadir al carrito
+          </button>
+
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold mb-4">Componentes</h2>
+            <ul className="list-disc list-inside">
+              {componentes.map((componente) => (
+                <li key={componente.id}>
+                  <Link to={`/componente/${componente.id}`} className="text-blue-600 hover:underline">
+                    {componente.nombre}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold mb-4">Fabricantes</h2>
+            <ul className="list-disc list-inside">
+              {fabricantes.map((fabricante) => (
+                <li key={fabricante.id}>
+                  <Link to={`/fabricante/${fabricante.id}`} className="text-blue-600 hover:underline">
+                    {fabricante.nombre}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           
         </div>
-        <div className="flex flex-col gap-4">
-          <h3 className="text-2xl font-semibold">Componentes</h3>
-          <Separacion />
-          <ul className="list-disc ml-8">
-            <li className="text-xl">Sensor</li>
-            <li className="text-xl">Pantalla</li>
-          </ul>
-        </div>
-        <div className="flex flex-col gap-4">
-          <h3 className="text-2xl font-semibold">Fabricantes</h3>
-          <Separacion />
-          <ul className="list-disc ml-8">
-            <li className="text-xl">Sensor</li>
-            <li className="text-xl">Pantalla</li>
-          </ul>
-        </div>
-        <div className="flex flex-col justify-between gap-4">
-          <div className="flex w-80 mx-auto justify-between">
-            <p className="text-2xl">${product.precio}</p>
-            <div className="flex my-auto">
-              <button>-</button>  
-              <p>1</p>  
-              <button>+</button>  
-            </div>
-          </div>
-          <button className="mx-auto bg-zinc-800 box-border w-80 text-white py-2">Añadir al Carrito</button>
-        </div>
-        {/* <h3>Componentes:</h3>
-        <ul>
-          {product.components.map((component) => (
-            <li key={component.id}>{component.name}</li>
-          ))}
-        </ul>
-        <h3>Fabricantes:</h3>
-        <ul>
-          {product.manufacturers.map((manufacturer) => (
-            <li key={manufacturer.id}>{manufacturer.name}</li>
-          ))}
-        </ul> */}
       </div>
-    </section>
+    </div>
   );
 }
 
