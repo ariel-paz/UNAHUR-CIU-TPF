@@ -1,27 +1,30 @@
 import { Link } from "react-router-dom";
+import SectionContainer from '../components/SectionContainer';
 
 function Footer() {
   return (
-    <footer className="flex flex-col max-w-6xl mx-auto px-2 ">
-      <div className="flex py-5 border-b border-gray-400 flex-col text-center gap-6 md:flex-row md:justify-between">
-        <h2 className="text-3xl">Logo</h2>
-        <nav className="flex gap-3 my-auto text-lg font-normal text-gray-500 mx-auto md:mx-0">
-          <Link to="/">Inicio</Link>
-          <Link to="/catalogo">Catálogo</Link>
-          <Link to="/fabricantes">Fabricantes y Componentes</Link>
+    <footer>
+      <div className="w-full p-3 border-b mb-5 border-orange-500">
+        <SectionContainer className="flex justify-between">
+        <img src="/images/logo.png" alt="Logo de TechMakers" width={45}/>
+        <nav className="flex gap-10 my-auto text-xl font-normal text-gray-600">
+          <Link to="/" className="hover:text-orange-500">Inicio</Link>
+          <Link to="/catalogo " className="hover:text-orange-500">Catálogo</Link>
+          <Link to="/fabricantes" className="hover:text-orange-500">Fabricantes</Link>
         </nav>
+        </SectionContainer>
       </div>
-      <div className="flex  text-gray-500 justify-between align-bottom my-5 flex-col gap-6 md:flex-row">
-        <section className="text-center md:text-left">
-          <h3>Equipo de Desarrollo</h3>
-          <ul>
+      <SectionContainer className="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+        <div className="mb-4 md:mb-0">
+          <p>Desarrollado por el equipo:</p>
+          <ul className="mt-1">
             <li>Alexis Chebeste</li>
             <li>Maximiliano Gomez</li>
             <li>Ariel Paz</li>
           </ul>
-        </section>
-        <p className="text-center my-auto">© LOGO - 2024 - Casi todos los derechos reservados </p>
-      </div>
+        </div>
+        <p >© 2024 TechMakers.  Casi todos los derechos reservados </p>
+      </SectionContainer>
     </footer>
   );
 }
