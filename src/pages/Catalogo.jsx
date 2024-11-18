@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { API_ROUTES, fetchData } from '../src_config_api';
+import SectionContainer from '../components/SectionContainer';
 
 function Catalogo() {
   
@@ -24,7 +25,7 @@ function Catalogo() {
     if (error) return <p>Error: {error}</p>;
 
     return (
-      <div>
+      <SectionContainer>
         <h1 className="text-4xl font-bold mb-6">Catálogo de Productos</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {productos.map((producto) => (
@@ -37,7 +38,7 @@ function Catalogo() {
             </Link>
           ))}
         </div>
-      </div>
+      </SectionContainer>
   );
 }
 

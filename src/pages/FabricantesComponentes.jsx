@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { API_ROUTES, fetchData } from '../src_config_api';
+import SectionContainer from '../components/SectionContainer';
 
 
 
@@ -33,7 +34,7 @@ export default function FabricantesComponentes() {
     if (error) return <p>Error: {error}</p>;
 
     return (
-        <div>
+        <SectionContainer>
             <h1 className="text-4xl font-bold mb-6">Componentes y Fabricantes</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
@@ -61,6 +62,6 @@ export default function FabricantesComponentes() {
                 </ul>
                 </div>
             </div>
-        </div>
+        </SectionContainer>
     )
 }
