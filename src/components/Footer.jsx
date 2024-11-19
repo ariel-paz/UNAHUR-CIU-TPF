@@ -4,7 +4,7 @@ import SectionContainer from '../components/SectionContainer';
 function Footer() {
   return (
     <footer>
-      <div className="w-full p-3 border-b mb-5 border-orange-500">
+      <div className="w-full border-b mb-5 border-orange-500">
         <SectionContainer className="flex justify-between">
         <img src="/images/logo.png" alt="Logo de TechMakers" width={45}/>
         <nav className="flex gap-10 my-auto text-xl font-normal text-gray-600">
