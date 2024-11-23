@@ -25,7 +25,7 @@ function Header() {
     };
   }, [menuRef]);
   return (
-    <header className="relative w-full border-b mb-5 border-orange-500">
+    <header className="relative w-full border-b border-orange-500">
       <SectionContainer className="flex justify-between items-center">
         <Link to="/" >
           <img src="/images/logo.png" alt="Logo de TechMakers" width={48}/>
