@@ -1,11 +1,14 @@
+
 # Frontend Catálogo de Productos - Empresa de Manufactura
 
-Este proyecto es una aplicación web frontend desarrollada en React para la visualización y navegación de un catálogo de productos de una empresa de manufactura. Esta aplicación se conecta a una API backend que gestiona productos, fabricantes y componentes.
+Este proyecto es una aplicación web frontend desarrollada en React para la visualización y navegación de un catálogo de productos de una empresa de manufactura. La aplicación se conecta a una API backend que gestiona productos, fabricantes y componentes.
 
 ## Tabla de Contenidos
 - [Descripción del Proyecto](#descripción-del-proyecto)
 - [Características Principales](#características-principales)
 - [Instalación y Configuración](#instalación-y-configuración)
+  - [Instalación del Frontend](#instalación-del-frontend)
+  - [Instalación del Backend](#instalación-del-backend)
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Rutas Disponibles](#rutas-disponibles)
 - [Uso](#uso)
@@ -13,69 +16,82 @@ Este proyecto es una aplicación web frontend desarrollada en React para la visu
 - [Autor(es)](#autores)
 
 ## Descripción del Proyecto
-Esta aplicación permite a los usuarios navegar a través de un catálogo de productos, visualizar detalles específicos de cada producto, y obtener información de fabricantes y componentes asociados. La app ha sido desarrollada con un diseño visualmente atractivo, enfocado en la presentación de información y la navegación sin modificar los datos del backend.
+Esta aplicación permite a los usuarios navegar a través de un catálogo de productos, visualizar detalles específicos de cada producto y obtener información sobre fabricantes y componentes asociados. El diseño se centra en una experiencia visualmente atractiva, facilitando la navegación y presentación de información.
 
 ## Características Principales
-- **Página de Inicio**: Incluye una presentación de la empresa, historia, filosofía, información de contacto, videos y un mapa interactivo de la ubicación de la empresa.
-- **Catálogo de Productos**: Lista de productos disponibles, con imagen, nombre, descripción y precio en cada tarjeta. Cada tarjeta permite hacer clic para ver detalles.
-- **Detalles del Producto**: Información completa de un producto específico, incluyendo descripción, precio, componentes y fabricantes.
-- **Fabricantes y Componentes**: Página dedicada a la visualización de la lista completa de fabricantes y componentes, accesible desde la página principal.
+- **Página de Inicio**: Presentación de la empresa con historia, filosofía, información de contacto, videos y mapa interactivo.
+- **Catálogo de Productos**: Lista interactiva de productos con imágenes, descripciones y precios.
+- **Detalles del Producto**: Información completa de cada producto, incluyendo componentes y fabricantes asociados.
+- **Fabricantes y Componentes**: Páginas dedicadas a explorar fabricantes y componentes disponibles.
 
 ## Instalación y Configuración
-Sigue estos pasos para ejecutar el proyecto en tu máquina local.
 
-### Pre-requisitos
-- Node.js (v18 o superior)
-- Backend API de gestión de productos disponible localmente en `http://localhost:5000`
+### Instalación del Frontend
+1. **Clona el repositorio**:
+   ```bash
+   git clone https://github.com/ariel-paz/UNAHUR-CIU-TPF.git
+   cd UNAHUR-CIU-TPF
+   ```
 
-### Instalación
-Clona el repositorio:
-```bash
-git clone https://github.com/ariel-paz/UNAHUR-CIU-TPF.git
-cd UNAHUR-CIU-TPF
-```
+2. **Instala las dependencias**:
+   ```bash
+   npm install
+   ```
 
-Instala las dependencias del proyecto:
-```bash
-npm install
-```
+3. **Inicia el servidor de desarrollo**:
+   ```bash
+   npm run dev
+   ```
+   Accede a la aplicación en [http://localhost:5173](http://localhost:5173).
 
-Inicia la aplicación en modo de desarrollo:
-```bash
-npm dev
-```
-La aplicación debería estar disponible en `http://localhost:5173`.
+### Instalación del Backend
+1. **Clona el repositorio del backend**:
+   ```bash
+   git clone https://github.com/MaxiGomez5431/api-sqlite-productos.git
+   cd api-sqlite-productos
+   ```
 
-### Configuración del Backend (cors)
-Si estás utilizando el backend proporcionado, asegúrate de habilitar cors en el backend para permitir que el frontend acceda a sus recursos:
+2. **Instala las dependencias**:
+   ```bash
+   npm install
+   ```
 
-Navega a la carpeta del backend y asegúrate de instalar las dependencias:
-```bash
-npm install
-```
+3. **Configura CORS (si es necesario)**: Verifica que el backend permita el acceso del frontend.
 
-Inicia el backend:
-```bash
-npm run dev
-```
+4. **Inicia el backend**:
+   ```bash
+   npm run dev
+   ```
+   La API estará disponible en [http://localhost:5000](http://localhost:5000).
 
 ## Estructura del Proyecto
 ```plaintext
-├── src/
-│   ├── components/
-│   │   ├── Header.js
-│   │   ├── Footer.js
-│   │   ├── Producto.js
-│   │   └── Listado.js
-│   ├── pages/
-│   │   ├── Home.js
-│   │   ├── Catalogo.js
-│   │   └── Detalle.js
-│   ├── App.js
-│   ├── App.css
 ├── public/
-│   ├── index.html
 │   └── images/
+├── src/
+│   ├──  components/ 
+│   │   ├── CarritoContext.jsx
+│   │   ├── CarritoHeader.jsx 
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── DetalleItem.jsx
+│   │   ├── Elemento.jsx
+│   │   ├── CatalogoElementos.jsx 
+│   │   ├── SectionContainer.jsx
+│   │   ├── Separacion.jsx 
+│   │   └── useCarrito.js
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── FabricantesComponentes.jsx 
+│   │   ├── DetalleProducto.jsx
+│   │   ├── DetalleFabricante.jsx
+│   │   ├── DetalleComponente.jsx 
+│   │   └── Carrito.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   ├── src_config_api.js
+│   └── main.js
+├── index.html
 ├── README.md
 └── package.json
 ```
@@ -83,18 +99,18 @@ npm run dev
 ## Rutas Disponibles
 - `/`: Página de inicio con la presentación de la empresa.
 - `/catalogo`: Catálogo de productos con la lista de productos disponibles.
-- `/productos/:id`: Página de detalles de un producto específico.
-- `/fabricantes`: Página con la lista de fabricantes y componentes.
+- `/productos/:id`: Detalles de un producto específico.
+- `/fabricantes`: Lista de fabricantes y componentes.
 
 ## Uso
-- **Navegación**: Utiliza el menú superior para navegar entre las páginas.
-- **Catálogo**: En la página de catálogo, selecciona cualquier producto para ver sus detalles.
-- **Fabricantes y Componentes**: Explora la lista de fabricantes y componentes desde la sección correspondiente en el menú.
+- **Navegación**: Usa el menú superior para moverte entre páginas.
+- **Exploración de Productos**: En el catálogo, selecciona un producto para ver sus detalles.
+- **Fabricantes y Componentes**: Explora esta sección desde el menú principal.
 
 ## Tecnologías Utilizadas
-- **Frontend**: React, react-router-dom, axios
-- **Estilos**: Bootstrap, CSS
-- **Backend**: API proporcionada en el repositorio de CIU-UnaHur
+- **Frontend**: React, React Router DOM, Axios.
+- **Estilos**: CSS, Bootstrap.
+- **Backend**: Node.js con SQLite (Repositorio: [api-sqlite-productos](https://github.com/MaxiGomez5431/api-sqlite-productos)).
 
 ## Autor(es)
 - Maximiliano Tomás Gomez
