@@ -22,6 +22,8 @@ Esta aplicación permite a los usuarios navegar a través de un catálogo de pro
 - **Página de Inicio**: Presentación de la empresa con historia, filosofía, información de contacto, videos y mapa interactivo.
 - **Catálogo de Productos**: Lista interactiva de productos con imágenes, descripciones y precios.
 - **Detalles del Producto**: Información completa de cada producto, incluyendo componentes y fabricantes asociados.
+- **Detalles del Componente**: Información completa de cada componente.
+- **Detalles del Fabricante**: Información completa de cada fabricantes.
 - **Fabricantes y Componentes**: Páginas dedicadas a explorar fabricantes y componentes disponibles.
 
 ## Instalación y Configuración
@@ -99,8 +101,11 @@ Esta aplicación permite a los usuarios navegar a través de un catálogo de pro
 ## Rutas Disponibles
 - `/`: Página de inicio con la presentación de la empresa.
 - `/catalogo`: Catálogo de productos con la lista de productos disponibles.
+- `/carrito`: Pagina de carrito.
 - `/productos/:id`: Detalles de un producto específico.
 - `/fabricantes`: Lista de fabricantes y componentes.
+- `/fabricantes/:id`: Detalles de un fabricantes específico.
+- `/componentes/:id`: Detalles de un componente específico.
 
 ## Uso
 - **Navegación**: Usa el menú superior para moverte entre páginas.
@@ -108,11 +113,11 @@ Esta aplicación permite a los usuarios navegar a través de un catálogo de pro
 - **Fabricantes y Componentes**: Explora esta sección desde el menú principal.
 
 ## Tecnologías Utilizadas
-- **Frontend**: React, React Router DOM, Axios.
-- **Estilos**: CSS, Bootstrap.
+- **Frontend**: React, React Router DOM.
+- **Estilos**: Tailwind CSS.
 - **Backend**: Node.js con SQLite (Repositorio: [api-sqlite-productos](https://github.com/MaxiGomez5431/api-sqlite-productos)).
 
 ## Autor(es)
 - Maximiliano Tomás Gomez
-- Alexis Chebeste
+- Alexis Paulino Chebeste
 - Ariel Paz
