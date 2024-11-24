@@ -7,9 +7,9 @@ function Footer() {
       <div className="w-full border-b mb-5 border-orange-500">
         <SectionContainer className="flex justify-between">
         <img src="/images/logo.png" alt="Logo de TechMakers" width={45}/>
-        <nav className="flex gap-10 my-auto text-xl font-normal text-gray-600">
+        <nav className="flex gap-4 sm:gap-10 my-auto text-xl font-normal text-gray-600">
           <Link to="/" className="hover:text-orange-500">Inicio</Link>
-          <Link to="/catalogo " className="hover:text-orange-500">Catálogo</Link>
+          <Link to="/catalogo" className="hover:text-orange-500">Catálogo</Link>
           <Link to="/fabricantes" className="hover:text-orange-500">Fabricantes</Link>
         </nav>
         </SectionContainer>

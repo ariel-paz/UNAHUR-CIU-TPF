@@ -128,10 +128,11 @@ function Home() {
           </div>
           <div className="md:w-1/2 md:pl-8 pt-8 md:pt-0">
             <h1 className="text-3xl font-semibold mb-4">Nuestra Empresa</h1>
-            <p className="text-lg">
-              Somos una empresa dedicada a ofrecer hardware de alto rendimiento que 
-              impulsa la innovación. Desde el inicio, nos enfocamos en brindar procesadores, 
-              gráficas y placas base de calidad, basándonos en principios de excelencia y compromiso.
+            <p className="text-lg text-justify">
+              Somos una empresa dedicada a ofrecer hardware de alto rendimiento
+              que impulsa la innovación. Desde el inicio, nos enfocamos en
+              brindar procesadores, gráficas y placas base de calidad,
+              basándonos en principios de excelencia y compromiso.
             </p>
           </div>
         </section>
@@ -141,25 +142,29 @@ function Home() {
             <h3 className="text-3xl font-semibold mb-4 text-gray-900">
               Nuestra Historia y Filosofía
             </h3>
-            <p className="text-lg leading-relaxed text-gray-700">
-              TechMakers Inc. fue fundada en 2005 por un equipo de ingenieros apasionados por 
-              la tecnología y la innovación en la industria de hardware para computadoras. 
-              La compañía comenzó como un pequeño taller en el que desarrollaban componentes 
-              personalizados para entusiastas de la computación y empresas tecnológicas. 
-              Con el tiempo, TechMakers se especializó en la creación de procesadores, 
-              tarjetas gráficas, placas base y otros componentes avanzados, convirtiéndose 
-              en un referente en el desarrollo de soluciones de hardware para gaming, diseño 
-              profesional y servidores empresariales.
+            <p className="text-lg leading-relaxed text-gray-700 text-justify">
+              TechMakers Inc. fue fundada en 2005 por un equipo de ingenieros
+              apasionados por la tecnología y la innovación en la industria de
+              hardware para computadoras. La compañía comenzó como un pequeño
+              taller en el que desarrollaban componentes personalizados para
+              entusiastas de la computación y empresas tecnológicas. Con el
+              tiempo, TechMakers se especializó en la creación de procesadores,
+              tarjetas gráficas, placas base y otros componentes avanzados,
+              convirtiéndose en un referente en el desarrollo de soluciones de
+              hardware para gaming, diseño profesional y servidores
+              empresariales.
             </p>
-            <p className="text-lg leading-relaxed mt-4 text-gray-700">
-              Desde sus inicios, TechMakers ha priorizado la calidad y la innovación, 
-              utilizando materiales de última generación y procesos de fabricación de precisión 
-              para cumplir con los estándares más exigentes del mercado. En 2018, la empresa 
-              implementó un sistema backend propio para gestionar su creciente catálogo de 
-              productos, componentes y relaciones con fabricantes, permitiendo una administración 
-              eficiente y transparente de sus operaciones. Hoy en día, TechMakers Inc. 
-              sigue liderando el mercado con productos diseñados para ofrecer rendimiento y 
-              confiabilidad a gamers, creadores de contenido y empresas tecnológicas.
+            <p className="text-lg leading-relaxed mt-4 text-gray-700 text-justify">
+              Desde sus inicios, TechMakers ha priorizado la calidad y la
+              innovación, utilizando materiales de última generación y procesos
+              de fabricación de precisión para cumplir con los estándares más
+              exigentes del mercado. En 2018, la empresa implementó un sistema
+              backend propio para gestionar su creciente catálogo de productos,
+              componentes y relaciones con fabricantes, permitiendo una
+              administración eficiente y transparente de sus operaciones. Hoy en
+              día, TechMakers Inc. sigue liderando el mercado con productos
+              diseñados para ofrecer rendimiento y confiabilidad a gamers,
+              creadores de contenido y empresas tecnológicas.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -225,7 +230,8 @@ function Home() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <div className="md:w-1/2 space-y-4 mb-8 md:mb-0">
               <p className="text-lg">
-                <strong>Dirección:</strong> <br /> Tte. Manuel Origone 151, B1688 Villa Tesei, Provincia de Buenos Aires
+                <strong>Dirección:</strong> <br /> Tte. Manuel Origone 151,
+                B1688 Villa Tesei, Provincia de Buenos Aires
               </p>
               <p className="text-lg">
                 <strong>Teléfono:</strong> <br />
@@ -238,11 +244,13 @@ function Home() {
             </div>
 
             <div className="md:w-1/2 flex justify-center">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6566.905339887034!2d-58.63710146096076!3d-34.617999347060284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb8d055e548bf%3A0x738f85ea67aeabe5!2sUniversidad%20Nacional%20de%20Hurlingham!5e0!3m2!1ses!2sar!4v1732478622161!5m2!1ses!2sar" 
-              width="400" height="300"
-              allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-            />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6566.905339887034!2d-58.63710146096076!3d-34.617999347060284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb8d055e548bf%3A0x738f85ea67aeabe5!2sUniversidad%20Nacional%20de%20Hurlingham!5e0!3m2!1ses!2sar!4v1732478622161!5m2!1ses!2sar"
+                allowFullScreen=""
+                className="w-full h-64 md:h-96 shadow-lg rounded"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 

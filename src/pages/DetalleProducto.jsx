@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { API_ROUTES, fetchData } from '../src_config_api';
 import Separacion from "../components/Separacion";
 import { useCarrito } from "../components/useCarrito";
 import DetalleItem from '../components/DetalleItem';
+import ErrorComponent from '../components/ErrorComponent';
 
 function Detalle() {
   const { id } = useParams();
@@ -14,28 +15,27 @@ function Detalle() {
   const [error, setError] = useState(null);
   const [cantidad, setCantidad] = useState(1);
   const {agregarAlCarrito} = useCarrito()
+  const fetchProductoData = useCallback(async () => {
+    try {
+      const productoData = await fetchData(API_ROUTES.producto(id));
+      setProducto(productoData);
+
+      const fabricantesData = await fetchData(API_ROUTES.productoFabricantes(id));
+      setFabricantes(fabricantesData.Fabricantes);
+
+      const componentesData = await fetchData(API_ROUTES.productoComponentes(id));
+      setComponentes(componentesData.Componentes);
+
+
+      setLoading(false);
+    } catch {
+      setError('Hubo un error al cargar los datos. Intente nuevamente más tarde.');
+      setLoading(false);
+    }
+  }, [id]); 
   useEffect(() => {
-    const fetchProductoData = async () => {
-      try {
-        const productoData = await fetchData(API_ROUTES.producto(id));
-        setProducto(productoData);
-
-        const fabricantesData = await fetchData(API_ROUTES.productoFabricantes(id));
-        setFabricantes(fabricantesData.Fabricantes);
-
-        const componentesData = await fetchData(API_ROUTES.productoComponentes(id));
-        setComponentes(componentesData.Componentes);
-
-
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
     fetchProductoData();
-  }, [id]);
+  }, [fetchProductoData]);
 
   const handleAgregarAlCarrito = () => {
     agregarAlCarrito(producto, cantidad);
@@ -47,7 +47,7 @@ function Detalle() {
   
 
   if (loading) return <p>Cargando detalles del producto...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <ErrorComponent mensaje={error} refetch={fetchProductoData} />;
   if (!producto) return <p>No se encontró el producto</p>;
 
   return (
