@@ -33,7 +33,7 @@ function CatalogoElementos({rutaDeAPI, tipo}) {
 
           <Elemento 
             nombre={elemento.nombre} descripcion={elemento.descripcion} 
-            rutaImagen={elemento.pathImg} id={elemento.id} 
+            rutaImagen={elemento.pathImg} precio={elemento?.precio} id={elemento.id} 
             tipo={tipo} key={elemento.id}
           />
 
