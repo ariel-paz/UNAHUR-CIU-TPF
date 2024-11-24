@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { useCarrito } from './useCarrito';
+import {X } from 'lucide-react';
 
 function CarritoHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,7 @@ function CarritoHeader() {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-semibold">Carrito</h2>
               <button onClick={toggleCarrito} className="text-gray-500 hover:text-gray-700">
-                <span className='w-5 h-5'>X</span>
+                <X className='w-5 h-5'/>
               </button>
             </div>
             {carrito.length === 0 ? (
@@ -71,7 +72,7 @@ function CarritoHeader() {
                           onClick={() => removerDelCarrito(item.id)}
                           className="ml-2 text-red-500 hover:text-red-700"
                         >
-                          <span className='w-4 h-4'>X</span>
+                          <X className='w-4 h-4'/>
                         </button>
                       </div>
                     </li>

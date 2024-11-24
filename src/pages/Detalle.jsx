@@ -39,7 +39,6 @@ function Detalle() {
 
   const handleAgregarAlCarrito = () => {
     agregarAlCarrito(producto, cantidad);
-    alert(`Se agregaron ${cantidad} ${producto.nombre} al carrito`);
   };
 
   const incrementarCantidad = () => setCantidad(prev => prev + 1);
