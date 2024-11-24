@@ -4,7 +4,7 @@ import Separacion from './Separacion';
 
 function DetalleItem({ children, item}) {
     return (
-      <SectionContainer className="flex flex-col md:flex-row border border-orange-300 py-9 pr-6 mb-7">
+      <SectionContainer className="flex flex-col md:flex-row border border-orange-300 py-9 pr-6 my-7">
         <div className="md:w-1/2 ">
           <img src={`/${item.pathImg}` }alt={item.nombre} className="w-full h-auto rounded-lg " />
         </div>

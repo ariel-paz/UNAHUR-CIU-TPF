@@ -11,7 +11,7 @@ function Home() {
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundImage: "url('images/home.png')",
+          backgroundImage: "url('images/home.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black opacity-25"></div>
