@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import SectionContainer from "../components/SectionContainer"; 
 import { API_ROUTES, fetchData } from '../src_config_api';
 import Separacion from "../components/Separacion";
 import { useCarrito } from "../components/useCarrito";
+import DetalleItem from '../components/DetalleItem';
 
 function Detalle() {
   const { id } = useParams();
@@ -51,21 +51,14 @@ function Detalle() {
   if (!producto) return <p>No se encontró el producto</p>;
 
   return (
-    <SectionContainer className="flex flex-col md:flex-row border border-orange-300 py-9 pr-6 mb-7">
-        <div className="md:w-1/2 md:border-r md:border-orange-300">
-          <img src={`/${producto.pathImg}`} alt={producto.nombre} className="w-full h-auto " />
-        </div>
-        <div className="md:w-1/2 text-gray-600">
-          <h1 className="text-4xl font-bold text-gray-800">{producto.nombre}</h1>
-          <Separacion />
-          <p className="text-gray-600 mb-2">{producto.descripcion}</p>
-          <section id="componentes">
+    <DetalleItem item={producto} >
+        <section id="componentes">
             <h2 className="text-2xl font-semibold mb-4">Componentes</h2>
             <Separacion />
             <ul className="list-disc list-inside">
               {componentes.map((componente) => (
                 <li key={componente.id} className="mb-2">
-                  <Link to={`/componente/${componente.id}`} className="hover:underline">
+                  <Link to={`/componentes/${componente.id}`} className="hover:underline">
                     {componente.nombre}
                   </Link>
                 </li>
@@ -78,7 +71,7 @@ function Detalle() {
             <ul className="list-disc list-inside ">
               {fabricantes.map((fabricante) => (
                 <li key={fabricante.id} className="mb-2">
-                  <Link to={`/fabricante/${fabricante.id}`} className=" hover:underline ">
+                  <Link to={`/fabricantes/${fabricante.id}`} className=" hover:underline ">
                     {fabricante.nombre}
                   </Link>
                 </li>
@@ -98,8 +91,7 @@ function Detalle() {
             Añadir al carrito
           </button>
         </section>
-        </div>
-    </SectionContainer>
+    </DetalleItem>
   );
 }
 

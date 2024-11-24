@@ -7,6 +7,8 @@ export const API_ROUTES = {
   productoComponentes: (id) => `${API_BASE_URL}/productos/${id}/componentes`,
   fabricantes: `${API_BASE_URL}/fabricantes`,
   componentes: `${API_BASE_URL}/componentes`,
+  componente: (id) => `${API_BASE_URL}/componentes/${id}`,
+  fabricante: (id) => `${API_BASE_URL}/fabricantes/${id}`,
 };
 
 export const fetchData = async (url) => {
