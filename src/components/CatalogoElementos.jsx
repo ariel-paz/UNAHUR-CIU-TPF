@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { fetchData } from '../src_config_api';
 import SectionContainer from '../components/SectionContainer';
-import Elemento from './Elemento';
+
 import ErrorComponent from './ErrorComponent';
+import Elemento from './Elemento';
 
 const CatalogoElementos = ({rutaDeAPI, tipo}) =>{
   const [elementos, setElementos] = useState([]);
@@ -18,16 +19,16 @@ const CatalogoElementos = ({rutaDeAPI, tipo}) =>{
         setLoading(false);
       })
       .catch(() => {
-        setError(`Hubo un error al cargar los ${tipo}. Intente nuevamente más tarde.`);
+        setError(`Hubo un error al cargar los elementos. Intente nuevamente más tarde.`);
         setLoading(false);
       });
-  }, [rutaDeAPI, tipo]);
+  }, [rutaDeAPI]);
 
   useEffect(() => {
     fetchElementos();
   }, [fetchElementos]);
 
-  if (loading) return <p>Cargando {tipo}...</p>;
+  if (loading) return <p className='text-center'>Cargando ...</p>;
   if (error) return <ErrorComponent mensaje={error} refetch={fetchElementos} />;
 
   return (
@@ -38,12 +39,7 @@ const CatalogoElementos = ({rutaDeAPI, tipo}) =>{
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {elementos.map((elemento) => (
 
-          <Elemento
-            nombre={elemento.nombre} descripcion={elemento.descripcion} 
-            rutaImagen={elemento.pathImg} precio={elemento?.precio} id={elemento.id} 
-            tipo={tipo} key={elemento.id}
-          />
-
+          <Elemento key={elemento.id} elemento={elemento} tipo={tipo}/>
         ))}
       </div>
 
