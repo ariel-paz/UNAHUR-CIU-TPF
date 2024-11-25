@@ -5,6 +5,7 @@ import Separacion from "../components/Separacion";
 import { useCarrito } from "../components/useCarrito";
 import DetalleItem from '../components/DetalleItem';
 import ErrorComponent from '../components/ErrorComponent';
+import { CircleMinus, CirclePlus } from 'lucide-react';
 
 function Detalle() {
   const { id } = useParams();
@@ -82,9 +83,9 @@ function Detalle() {
           <div className="flex items-center justify-between mb-4">
             <p className="text-2xl font-semibold">${producto.precio.toFixed(2)}</p>
             <div className="flex items-center">
-              <button onClick={decrementarCantidad} className="bg-gray-200 text-gray-800 px-3 py-1 rounded-l">-</button>
+              <button onClick={decrementarCantidad} className="bg-gray-200 text-orange-500 px-3 py-1 rounded-l hover:text-orange-700"><CircleMinus /></button>
               <span className="bg-gray-100 text-gray-800 px-4 py-1">{cantidad}</span>
-              <button onClick={incrementarCantidad} className="bg-gray-200 text-gray-800 px-3 py-1 rounded-r">+</button>
+              <button onClick={incrementarCantidad} className="bg-gray-200 text-orange-500 px-3 py-1 rounded-r hover:text-orange-700"><CirclePlus /></button>
             </div>
           </div>
           <button onClick={handleAgregarAlCarrito} className="w-full bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 text-lg" >

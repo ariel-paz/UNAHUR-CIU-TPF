@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { useCarrito } from './useCarrito';
-import {X } from 'lucide-react';
+import {X,CirclePlus, CircleMinus  } from 'lucide-react';
 
 function CarritoHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,16 +57,16 @@ function CarritoHeader() {
                       <div className="flex items-center">
                         <button
                           onClick={() => actualizarCantidad(item.id, item.cantidad - 1)}
-                          className="text-gray-500 hover:text-gray-700 px-1"
+                          className="text-gray-500 hover:text-orange-500 px-1"
                         >
-                          -
+                          <CircleMinus className='size-4'/>
                         </button>
                         <span className="mx-1 text-sm">{item.cantidad}</span>
                         <button
                           onClick={() => actualizarCantidad(item.id, item.cantidad + 1)}
-                          className="text-gray-500 hover:text-gray-700 px-1"
+                          className="text-gray-500 hover:text-orange-500 px-1"
                         >
-                          +
+                          <CirclePlus className='size-4'/>
                         </button>
                         <button
                           onClick={() => removerDelCarrito(item.id)}
