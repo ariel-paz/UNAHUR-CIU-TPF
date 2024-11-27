@@ -14,29 +14,29 @@ export default function Carrito() {
                 <ul className="divide-y divide-gray-200">
                     {carrito.map((item) => (
                     <li key={item.id} className="py-4 flex">
-                        <img src={item.pathImg} alt={item.nombre} className="h-24 w-24 flex-none rounded-md bg-gray-200 object-cover object-center" />
-                        <div className="ml-4 flex flex-1 flex-col">
-                        <div>
-                            <div className="flex justify-between text-base font-medium text-gray-900">
-                            <h3>{item.nombre}</h3>
-                            <p className="ml-4">${(item.precio * item.cantidad).toFixed(2)}</p>
+                        <img src={item.pathImg} alt={item.nombre} className="h-36 w-40 flex-none rounded-md object-contain object-center p-2" />
+                        <div className="ml-4 flex flex-1 flex-col p-4">
+                            <div>
+                                <div className="flex justify-between text-base font-medium text-gray-900">
+                                <h3>{item.nombre}</h3>
+                                <p className="ml-4">${(item.precio * item.cantidad).toFixed(2)}</p>
+                                </div>
+                                <p className="mt-1 text-sm text-gray-500">{item.descripcion}</p>
                             </div>
-                            <p className="mt-1 text-sm text-gray-500">{item.descripcion}</p>
-                        </div>
-                        <div className="flex flex-1 items-end justify-between text-sm">
-                            <div className="flex items-center">
-                            <button onClick={() => actualizarCantidad(item.id, item.cantidad - 1)} className="text-gray-500 hover:text-gray-700"><CircleMinus /></button>
-                            <span className="mx-2">{item.cantidad}</span>
-                            <button onClick={() => actualizarCantidad(item.id, item.cantidad + 1)} className="text-gray-500 hover:text-gray-700"><CirclePlus /></button>
+                            <div className="flex flex-1 items-end justify-between text-sm">
+                                <div className="flex items-center">
+                                <button onClick={() => actualizarCantidad(item.id, item.cantidad - 1)} className="text-gray-500 hover:text-gray-700"><CircleMinus /></button>
+                                <span className="mx-2">{item.cantidad}</span>
+                                <button onClick={() => actualizarCantidad(item.id, item.cantidad + 1)} className="text-gray-500 hover:text-gray-700"><CirclePlus /></button>
+                                </div>
+                                <button
+                                type="button"
+                                onClick={() => removerDelCarrito(item.id)}
+                                className="font-medium text-orange-600 hover:text-orange-500"
+                                >
+                                Eliminar
+                                </button>
                             </div>
-                            <button
-                            type="button"
-                            onClick={() => removerDelCarrito(item.id)}
-                            className="font-medium text-orange-600 hover:text-orange-500"
-                            >
-                            Eliminar
-                            </button>
-                        </div>
                         </div>
                     </li>
                     ))}
