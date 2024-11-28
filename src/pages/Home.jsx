@@ -170,7 +170,7 @@ function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div className="group">
               <a
-                href="https://www.youtube.com/watch?v=WivxtMYlYCw"
+                href="https://www.youtube.com/watch?v=XHOzJudr8PI"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -183,7 +183,7 @@ function Home() {
             </div>
             <div className="group">
               <a
-                href="https://www.youtube.com/watch?v=t7oR96IKMAA"
+                href="https://www.youtube.com/watch?v=t1BXTTfyVdk"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -196,7 +196,7 @@ function Home() {
             </div>
             <div className="group">
               <a
-                href="https://www.youtube.com/watch?v=X31rB8zJ0x0&pp=ygUmZmFicmljYSBkZSBjZWx1bGFyZXMgcG9yIGZ1ZXJhIHNhbXN1bmc%3D"
+                href="https://www.youtube.com/watch?v=iExX3T70878"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -216,7 +216,7 @@ function Home() {
           </h2>
           <div className="flex justify-center">
             <iframe
-              src="https://www.youtube.com/embed/WivxtMYlYCw"
+              src="https://www.youtube.com/embed/NXKpc09Ozww"
               title="Video de presentación"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="w-full h-64 md:h-96 shadow-lg rounded"
