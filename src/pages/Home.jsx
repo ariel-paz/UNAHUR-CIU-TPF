@@ -216,7 +216,7 @@ function Home() {
           </h2>
           <div className="flex justify-center">
             <iframe
-              src="https://www.youtube.com/embed/NXKpc09Ozww"
+              src="https://www.youtube.com/embed/WivxtMYlYCw"
               title="Video de presentación"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="w-full h-64 md:h-96 shadow-lg rounded"
